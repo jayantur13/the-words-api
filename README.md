@@ -12,7 +12,7 @@ To run the project,type in terminal<br />
 `npm start`
 
 ## Reminder
-Most of the websites doesn't allow web scrapping and earning money from it.So, try not to flood the website with many requests and use this only for personal projects 
+Most of the websites have don't want to be scrapped.So, try not to flood the website with many requests and use this only for personal projects 
 
 ## MIT License
 Permission is hereby granted, free of
