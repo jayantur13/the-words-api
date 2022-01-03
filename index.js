@@ -2,10 +2,9 @@ const express = require('express')
 const app = express()
 const cheerio = require('cheerio')
 const axios = require('axios')
-const { response } = require('express')
 const PORT  = process.env.PORT || 4000
 
-//Some host/os needs this to work
+//Some host/os needs these 2 lines to work
 app.set('port', PORT);
 app.use(express.static(__dirname + '/public'));
 
@@ -14,10 +13,10 @@ app.get('/', (req,res) => {
 })
 
 
-//GET a word for a your POST query
+//GET a word for a your query
 app.get('/post/:word',(req,res) => {
     const word = req.params.word;
-    axios.post(`https://www.dictionary.com/browse/${word}`)
+    axios.get(`https://www.dictionary.com/browse/${word}`)
          .then(response => {
             const html = response.data
             const $ = cheerio.load(html)
@@ -66,7 +65,7 @@ app.get('/trending',(req,res) => {
            }
            res.status(200).send(intrend)//Get 1st 10 only;avoid duplicating
            
-        })
+        }).catch(err => res.json(err.message))
 })
 
 app.listen(PORT,() => console.log(`Server running on port ${PORT}`))
