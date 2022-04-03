@@ -1,7 +1,7 @@
 {
   "name": "about-words",
   "version": "1.0.0",
-  "description": "Search for word and their meanings and get trending words.",
+  "description": "Get trending words & search for word-meanings.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
